@@ -1,5 +1,5 @@
 class AuthenticationTokenService
-  HMAC_SECRET = ENV['PHASE4_SECRET_KEY']
+  HMAC_SECRET = ENV['EXPENSE_TRACKER_SECRET_KEY']
   ALGORITHM_TYPE = 'HS256'.freeze
 
   def self.encode(user_id)
