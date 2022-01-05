@@ -1,5 +1,5 @@
 class AuthenticationTokenService
-  HMAC_SECRET = ENV['EXPENSE_TRACKER_SECRET_KEY']
+  HMAC_SECRET = 'youfoundmysecretkey'
   ALGORITHM_TYPE = 'HS256'.freeze
 
   def self.encode(user_id)
@@ -9,7 +9,7 @@ class AuthenticationTokenService
   end
 
   def self.decode(token)
-    decoded_token = JWT.decode token, HMAC_SECRET, true, { algorithm: ALGORITHM_TYPE }
+    decoded_token = JWT.decode token, HMAC_SECRET, false, { algorithm: ALGORITHM_TYPE }
     decoded_token.first['user_id']
   end
 end
